@@ -23,11 +23,6 @@ jobs:
 
     - name: Build project
       run: npm run build
-    
-    - name: Debug secrets
-      run: |
-        echo "Host: ${{ secrets.SERVER_HOST }}"
-        echo "User: ${{ secrets.SERVER_USER }}"
 
     - name: Deploy to Server via SCP
       uses: appleboy/scp-action@v1
@@ -38,4 +33,3 @@ jobs:
         source: "dist/*"
         target: "/var/www/html/noteAppFe/dist"
         strip_components: 1
-        debug: true
